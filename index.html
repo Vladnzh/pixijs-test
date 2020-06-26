@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <title>Game</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container-top">
+            <div class="container-shapes-counter">
+                <span id="shapes-counter">0</span>
+            </div>
+<!--            <div class="container-surface-area-counter">-->
+<!--                <span id="surface-area-counter">0</span>-->
+<!--            </div>-->
+            </div>
+            <div id="root"></div>
+            <div class="container-bottom">
+                <span class="speed-controller">
+                    <button id="decrease-speed-counter">-</button>
+                    <button id="increase-speed-counter">+</button>
+                    <span id="speed-counter">1</span>
+                </span>
+                <span class="gravity-controller">
+                    <button id="decrease-gravity-counter">-</button>
+                    <button id="increase-gravity-counter">+</button>
+                    <span id="gravity-counter">1</span>
+                </span>
+            </div>
+        </div>
+        <script src="build/app.js"></script>
+    </body>
+</html>

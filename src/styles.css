@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+#root canvas {
+    border-radius: 0 10px 10px 0;
+    z-index: 100;
+    margin-left: 100px;
+    background-color: sandybrown;
+    height: 450px;
+    width: 900px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.container-shapes-counter {
+    display: flex;
+    margin-left: 100px;
+    background-color: sandybrown;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    width: 200px;
+    height: 50px;
+}
+.surface-area-counter {
+    display: flex;
+    margin-left: 10px;
+    background-color: sandybrown;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    width: 200px;
+    height: 50px;
+}
+.container-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 100px;
+    width: 450px;
+}
+.container-top {
+    display: flex;
+}
+.container-bottom span {
+    margin-top: -4px;
+    background-color: sandybrown;
+    border-radius: 0 0 10px 10px;
+    width: 200px;
+    height: 50px;
+    padding: 5px;
+}
+.speed-controller,
+.gravity-controller {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.speed-controller,
+.gravity-controller,
+span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Nunito, sans-serif;
+    color: antiquewhite;
+    font-size: 30px;
+}
+
+button {
+    -webkit-box-shadow: -1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+    margin: 3px 3px 3px 3px;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    color: antiquewhite;
+    line-height: 10px;
+    background-color: sandybrown;
+    font-size: 37px;
+    text-decoration: none;
+    font-family: Nunito, sans-serif;
+    border: 1px solid antiquewhite;
+}
+button:hover {
+    font-size: 45px;
+}
+button:active {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    transform: translateY(3px);
+}
+button:focus {
+    outline: none;
+}
+
+#speed-counter,
+#gravity-counter {
+    width: 300px;
+}
+
+#shapes-counter {
+    color: antiquewhite;
+    font-size: 30px;
+    font-family: Nunito, sans-serif;
+}
