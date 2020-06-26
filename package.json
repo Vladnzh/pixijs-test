@@ -6,14 +6,16 @@
     "scripts": {
         "start": "NODE_ENV=production node server",
         "dev": "NODE_ENV=development node server",
-        "build": "webpack --mode production"
+        "build": "webpack --mode production",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "homepage": "http://Vladnzh.github.io/pixijs-test",
-
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "gh-pages": "^3.1.0",
         "lodash": "^4.17.15",
         "pixi.js": "^5.3.0",
         "randomcolor": "^0.5.4"
