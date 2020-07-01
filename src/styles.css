@@ -6,29 +6,32 @@ body {
     box-sizing: border-box;
 }
 #root canvas {
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px;
+    border: 3px solid sandybrown;
     z-index: 100;
-    margin-left: 100px;
-    background-color: sandybrown;
     height: 450px;
     width: 900px;
 }
 .wrapper {
     display: flex;
+    width: 100vw;
+    height: 100vh;
     flex-direction: column;
-    justify-content: end;
-    margin-left: 100px;
+    align-items: center;
     margin-top: 50px;
 }
-.container-shapes-counter {
+.container-shapes-counter,
+.container-surface-area-counter {
     display: flex;
-    margin-left: 100px;
     background-color: sandybrown;
     justify-content: center;
     align-items: center;
     border-radius: 10px 10px 0 0;
     width: 200px;
     height: 50px;
+}
+.container-surface-area-counter {
+    margin-left: 30px;
 }
 .surface-area-counter {
     display: flex;
@@ -43,7 +46,6 @@ body {
 .container-bottom {
     display: flex;
     justify-content: space-between;
-    margin-left: 100px;
     width: 450px;
 }
 .container-top {

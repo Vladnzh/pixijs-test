@@ -8,7 +8,7 @@ const config = {
     devtool: 'cheap-module-source-map',
     mode: 'production',
     entry: {
-        app: ['./src/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'],
+        app: ['./src/index.ts', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'],
     },
     output: {
         filename: '[name].js',

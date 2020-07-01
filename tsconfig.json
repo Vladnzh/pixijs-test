@@ -8,7 +8,10 @@
         "sourceMap": true,
         "inlineSources": true,
         "declaration": true,
-        "baseUrl": "."
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "typeRoots" : ["node_modules/pixi.js"],
+        "types" : ["pixi.js"]
     },
     "include": ["**/*.ts"],
     "exclude": ["node_modules"]
