@@ -28,7 +28,7 @@ export default class Shape extends PIXI.Graphics {
         this.buttonMode = true;
         this.alpha = random(0.5, 1);
 
-        this.x = get(coordinates, 'x', random(90, 1300 + 90, true));
+        this.x = get(coordinates, 'x', random(90, 1100, true));
         this.y = get(coordinates, 'y', this.shapeType === 'random' ? -85 : -50);
     }
 

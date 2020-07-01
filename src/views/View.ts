@@ -8,8 +8,8 @@ export default class View {
 
     constructor() {
         this.renderer = new PIXI.Renderer({
-            width: window.innerWidth,
-            height: window.innerHeight,
+            width: 1200,
+            height: 600,
             transparent: true,
             resolution: 3,
         });

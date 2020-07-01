@@ -16,17 +16,19 @@ export default class ShapeController {
         this.ticker.start();
 
         this.model.on('mousedown', () => {
-            this.parent.changeColorShapeByType(this.model);
+            this.ticker.stop();
             this.parent.removeShape(this.model);
+            this.parent.changeColorShapeByType(this.model);
         });
+
     }
 
     update() {
         this.model.y += this.parent.model.gravity;
 
-        if (this.model.y > (this.model.shapeType === 'random' ? 620 : 660) + this.model.getBounds().height) {
-            this.ticker.stop();
+        if (this.model.y > (this.model.shapeType === 'random' ? 515 : 558) + this.model.getBounds().height) {
             this.parent.removeShape(this.model);
+            this.ticker.stop();
         }
     }
 

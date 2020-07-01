@@ -54,6 +54,7 @@ export default class InteractiveAreaController {
 
         this.updateShapesCounter();
         this.updateSurfaceAreaOccupiedCounter('increase', shape);
+
     }
 
     removeShape(shape: Shape) {
@@ -80,18 +81,24 @@ export default class InteractiveAreaController {
     }
 
     updateSurfaceAreaOccupiedCounter(value: string, shape: Shape) {
-        const shapeArea = Math.floor(shape.getBounds().width * shape.getBounds().height);
+
+        const shapeArea = Math.ceil(shape.getBounds().width) * Math.ceil(shape.getBounds().height);
         // const shapeArea = this.view.extract.pixels(shape).length / 4;
+        const surfaceAreaCounter = document.getElementById('surface-area-counter');
 
         if (value === 'increase') {
             this.model.surfaceAreaOccupied += shapeArea;
+
+            surfaceAreaCounter.innerHTML = String(this.model.surfaceAreaOccupied);
+            return;
         }
         if (value === 'decrease') {
             this.model.surfaceAreaOccupied -= shapeArea;
+
+            surfaceAreaCounter.innerHTML = String(this.model.surfaceAreaOccupied);
+            return;
         }
 
-        const surfaceAreaCounter = document.getElementById('surface-area-counter');
-        surfaceAreaCounter.innerHTML = String(this.model.surfaceAreaOccupied);
     }
 
     updateSpeedCounter(value: string) {

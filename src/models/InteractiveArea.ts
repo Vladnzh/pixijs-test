@@ -12,7 +12,7 @@ export default class InteractiveArea extends PIXI.Graphics {
         this.y = 0;
 
         this.beginFill(0xe6ffff);
-        this.drawRect(0, 0, window.innerWidth, window.innerHeight);
+        this.drawRect(0, 0, 1200, 600);
         this.endFill();
 
         this.shapesPerSecond = 1;
