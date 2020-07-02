@@ -19,6 +19,7 @@ export default class Shape extends PIXI.Graphics {
         this.y = get(coordinates, 'y', this.shapeType === 'random' ? -85 : -50);
     }
 
+    // generates a random shape by 'shapeType'
     generateShape() {
         const randomColor = generateRandomColor();
 

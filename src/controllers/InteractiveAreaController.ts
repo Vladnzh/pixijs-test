@@ -31,6 +31,7 @@ export default class InteractiveAreaController {
         this.ticker.add(() => this.update());
         this.ticker.start();
 
+        // adds shape by mousedown coordinates
         this.model.on('mousedown', (event: InteractionEventType) => {
             this.addShape({
                 x: event.data.global.x - this.model.x,
@@ -39,6 +40,7 @@ export default class InteractiveAreaController {
         });
     }
 
+    // called when user clicks on the shape
     changeColorShapeByType(shape: ShapeType) {
         this.model.children.map((item: ShapeType) => {
             if (item.shapeType === shape.shapeType) {
@@ -48,6 +50,7 @@ export default class InteractiveAreaController {
         });
     }
 
+    //  create a shape and adds the shape, updates the counter and calculates the area
     addShape(coordinates: CoordinatesType) {
         const shapesTypes = [3, 4, 5, 6, 'circle', 'ellipse', 'random'];
         const randomShapeType = shapesTypes[random(0, shapesTypes.length - 1, false)];
@@ -61,17 +64,22 @@ export default class InteractiveAreaController {
         this.updateSurfaceAreaOccupiedCounter('increase', shape);
     }
 
+    //  remove the shape, updates the shapes counter and calculates the area
     removeShape(shape: ShapeType) {
         this.model.removeChild(shape);
         this.updateShapesCounter();
         this.updateSurfaceAreaOccupiedCounter('decrease', shape);
     }
 
+    // updates the shapes counter
     updateShapesCounter() {
+        const quantityShapes = String(this.model.children.length);
+
         const shapesCounter = document.getElementById('shapes-counter');
-        shapesCounter.innerHTML = String(this.model.children.length);
+        shapesCounter.innerHTML = quantityShapes;
     }
 
+    // updates the gravity counter
     updateGravityCounter(value: string) {
         if (value === 'increase' && this.model.gravity < 10) {
             this.model.gravity += 1;
@@ -79,43 +87,46 @@ export default class InteractiveAreaController {
         if (value === 'decrease' && this.model.gravity > 1) {
             this.model.gravity -= 1;
         }
+        const quantityGravity = String(this.model.gravity);
 
         const gravityCounter = document.getElementById('gravity-counter');
-        gravityCounter.innerHTML = String(this.model.gravity);
+        gravityCounter.innerHTML = quantityGravity;
     }
 
+    // updates the surface area occupied counter
     updateSurfaceAreaOccupiedCounter(value: string, shape: ShapeType) {
         // const shapeArea = Math.ceil(shape.getBounds().width) * Math.ceil(shape.getBounds().height);
         const shapeArea = this.view.extract.pixels(shape).length / 4;
 
-        const surfaceAreaCounter = document.getElementById('surface-area-counter');
-
         if (value === 'increase') {
             this.model.surfaceAreaOccupied += shapeArea;
-
-            surfaceAreaCounter.innerHTML = String(this.model.surfaceAreaOccupied);
-            return;
         }
         if (value === 'decrease') {
             this.model.surfaceAreaOccupied -= shapeArea;
-
-            surfaceAreaCounter.innerHTML = String(this.model.surfaceAreaOccupied);
-            return;
         }
+
+        const quantitySurfaceAreaOccupied = String(this.model.surfaceAreaOccupied);
+
+        const surfaceAreaCounter = document.getElementById('surface-area-counter');
+        surfaceAreaCounter.innerHTML = quantitySurfaceAreaOccupied;
     }
 
+    // updates the speed counter
     updateSpeedCounter(value: string) {
+
         if (value === 'increase' && this.model.shapesPerSecond < 10) {
             this.model.shapesPerSecond += 1;
         }
         if (value === 'decrease' && this.model.shapesPerSecond > 1) {
             this.model.shapesPerSecond -= 1;
         }
+        const quantityShapesPerSecond = String(this.model.shapesPerSecond);
 
         const speedCounter = document.getElementById('speed-counter');
-        speedCounter.innerHTML = String(this.model.shapesPerSecond);
+        speedCounter.innerHTML = quantityShapesPerSecond;
     }
 
+    // listening the gravity controller
     gravityListener() {
         const increaseGravityCounter = document.getElementById('increase-gravity-counter');
         const decreaseGravityCounter = document.getElementById('decrease-gravity-counter');
@@ -127,6 +138,7 @@ export default class InteractiveAreaController {
         });
     }
 
+    // listening the speed controller
     speedListener() {
         const increaseSpeedCounter = document.getElementById('increase-speed-counter');
         const decreaseSpeedCounter = document.getElementById('decrease-speed-counter');
@@ -138,6 +150,7 @@ export default class InteractiveAreaController {
         });
     }
 
+    // called 'shapesPerSecond' second
     update() {
         this.addShape();
         this.ticker.maxFPS = this.model.shapesPerSecond;

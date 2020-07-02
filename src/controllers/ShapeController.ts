@@ -22,9 +22,11 @@ export default class ShapeController {
 
     }
 
+    // updates every time
     update() {
         this.model.y += this.parent.model.gravity;
 
+        // the shape deleted when it goes beyond the boundaries of 'interactiveArea' and stops thicker
         if (this.model.y > (this.model.shapeType === 'random' ? 515 : 558) + this.model.getBounds().height) {
             this.parent.removeShape(this.model);
             this.ticker.stop();
