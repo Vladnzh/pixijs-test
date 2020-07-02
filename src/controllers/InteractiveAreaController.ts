@@ -1,18 +1,23 @@
 import { random } from 'lodash';
 import Shape from 'models/Shape';
-import InteractiveArea from 'models/InteractiveArea';
-import View from 'views/View';
 import ShapeController from 'controllers/ShapeController';
-// @ts-ignore
 import { ColorOverlayFilter } from '@pixi/filter-color-overlay';
 import * as PIXI from 'pixi.js';
+import {
+    CoordinatesType,
+    InteractionEventType,
+    InteractiveAreaType,
+    ShapeType,
+    TickerType,
+    ViewType,
+} from '../interfaces';
 
 export default class InteractiveAreaController {
-    model: InteractiveArea;
-    view: View;
-    ticker: PIXI.Ticker;
+    model: InteractiveAreaType;
+    view: ViewType;
+    ticker: TickerType;
 
-    constructor(model: InteractiveArea, view: View) {
+    constructor(model: InteractiveAreaType, view: ViewType) {
         this.view = view;
         this.model = model;
 
@@ -26,7 +31,7 @@ export default class InteractiveAreaController {
         this.ticker.add(() => this.update());
         this.ticker.start();
 
-        this.model.on('mousedown', (event: any) => {
+        this.model.on('mousedown', (event: InteractionEventType) => {
             this.addShape({
                 x: event.data.global.x - this.model.x,
                 y: event.data.global.y - this.model.y,
@@ -34,8 +39,8 @@ export default class InteractiveAreaController {
         });
     }
 
-    changeColorShapeByType(shape: Shape) {
-        this.model.children.map((item: Shape) => {
+    changeColorShapeByType(shape: ShapeType) {
+        this.model.children.map((item: ShapeType) => {
             if (item.shapeType === shape.shapeType) {
                 item.filters = [new ColorOverlayFilter(0x81f542)];
                 item.alpha = 1;
@@ -43,21 +48,20 @@ export default class InteractiveAreaController {
         });
     }
 
-    addShape(coordinates: { x: number; y: number } | void) {
+    addShape(coordinates: CoordinatesType) {
         const shapesTypes = [3, 4, 5, 6, 'circle', 'ellipse', 'random'];
         const randomShapeType = shapesTypes[random(0, shapesTypes.length - 1, false)];
 
-        const shape = new Shape({ shapeType: randomShapeType, coordinates: coordinates });
+        const shape = new Shape(randomShapeType, coordinates);
         const shapeController = new ShapeController(shape, this);
 
         shapeController.render();
 
         this.updateShapesCounter();
         this.updateSurfaceAreaOccupiedCounter('increase', shape);
-
     }
 
-    removeShape(shape: Shape) {
+    removeShape(shape: ShapeType) {
         this.model.removeChild(shape);
         this.updateShapesCounter();
         this.updateSurfaceAreaOccupiedCounter('decrease', shape);
@@ -80,10 +84,10 @@ export default class InteractiveAreaController {
         gravityCounter.innerHTML = String(this.model.gravity);
     }
 
-    updateSurfaceAreaOccupiedCounter(value: string, shape: Shape) {
+    updateSurfaceAreaOccupiedCounter(value: string, shape: ShapeType) {
+        // const shapeArea = Math.ceil(shape.getBounds().width) * Math.ceil(shape.getBounds().height);
+        const shapeArea = this.view.extract.pixels(shape).length / 4;
 
-        const shapeArea = Math.ceil(shape.getBounds().width) * Math.ceil(shape.getBounds().height);
-        // const shapeArea = this.view.extract.pixels(shape).length / 4;
         const surfaceAreaCounter = document.getElementById('surface-area-counter');
 
         if (value === 'increase') {
@@ -98,7 +102,6 @@ export default class InteractiveAreaController {
             surfaceAreaCounter.innerHTML = String(this.model.surfaceAreaOccupied);
             return;
         }
-
     }
 
     updateSpeedCounter(value: string) {

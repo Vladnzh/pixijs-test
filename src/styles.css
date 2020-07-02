@@ -20,15 +20,29 @@ body {
     align-items: center;
     margin-top: 50px;
 }
+.counter-name {
+    text-align: center;
+    font-size: 20px;
+    border-top: 1px solid antiquewhite;
+    border-radius: 0 0 10px 10px;
+}
+.container-top .counter-name {
+    text-align: center;
+    font-size: 20px;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+}
 .container-shapes-counter,
 .container-surface-area-counter {
     display: flex;
+    padding: 10px;
+    flex-direction: column;
     background-color: sandybrown;
     justify-content: center;
     align-items: center;
     border-radius: 10px 10px 0 0;
-    width: 200px;
-    height: 50px;
+    width: 300px;
+    height: 70px;
 }
 .container-surface-area-counter {
     margin-left: 30px;
@@ -54,10 +68,14 @@ body {
 .container-bottom span {
     margin-top: -4px;
     background-color: sandybrown;
-    border-radius: 0 0 10px 10px;
     width: 200px;
     height: 50px;
-    padding: 5px;
+    padding: 5px 5px 10px 5px;
+}
+.speed-controller-wrapper,
+.gravity-controller-wrapper {
+    display: flex;
+    flex-direction: column;
 }
 .speed-controller,
 .gravity-controller {

@@ -1,4 +1,8 @@
-import { replace } from 'lodash';
-import randomColor from "randomcolor";
-
-export const generateRandomColor = () => replace(randomColor({ format: 'hex' }), '#', '0x');
+export const generateRandomColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '0x';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return +color;
+};

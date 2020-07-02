@@ -1,13 +1,12 @@
 import * as PIXI from 'pixi.js';
-import Shape from 'models/Shape';
-import InteractiveAreaController from 'controllers/InteractiveAreaController';
+import { InteractiveAreaControllerType, ShapeType, TickerType } from '../interfaces';
 
 export default class ShapeController {
-    model: Shape;
-    parent: InteractiveAreaController;
-    ticker: PIXI.Ticker;
+    model: ShapeType;
+    parent: InteractiveAreaControllerType;
+    ticker: TickerType;
 
-    constructor(model: Shape, parent: InteractiveAreaController) {
+    constructor(model: ShapeType, parent: InteractiveAreaControllerType) {
         this.parent = parent;
         this.model = model;
 

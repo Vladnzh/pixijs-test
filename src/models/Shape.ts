@@ -1,25 +1,12 @@
 import * as PIXI from 'pixi.js';
 import { random, get } from 'lodash';
 import { generateRandomColor } from '../utils';
+import { CoordinatesType, ShapeTypeType } from '../interfaces';
 
 export default class Shape extends PIXI.Graphics {
-    shapeType: string | number;
-    interactive: boolean;
-    buttonMode: boolean;
-    alpha: number;
-    x: number;
-    y: number;
+    shapeType: ShapeTypeType;
 
-    constructor({
-        shapeType,
-        coordinates,
-    }: {
-        shapeType: string | number;
-        coordinates: {
-            x: number;
-            y: number;
-        }| void;
-    }) {
+    constructor(shapeType: ShapeTypeType, coordinates: CoordinatesType) {
         super();
         this.shapeType = shapeType;
         this.generateShape();
@@ -34,7 +21,7 @@ export default class Shape extends PIXI.Graphics {
 
     generateShape() {
         const randomColor = generateRandomColor();
-        // @ts-ignore
+
         this.beginFill(randomColor);
 
         switch (this.shapeType) {

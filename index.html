@@ -16,24 +16,32 @@
         <div class="wrapper">
             <div class="container-top">
                 <div class="container-shapes-counter">
+                    <span class="counter-name">Number of current shapes</span>
                     <span id="shapes-counter">0</span>
                 </div>
                 <div class="container-surface-area-counter">
+                    <span class="counter-name">Surface area occupied by shapes</span>
                     <span id="surface-area-counter">0</span>
                 </div>
             </div>
             <div id="root"></div>
             <div class="container-bottom">
-                <span class="speed-controller">
-                    <button id="decrease-speed-counter">-</button>
-                    <button id="increase-speed-counter">+</button>
-                    <span id="speed-counter">1</span>
-                </span>
-                <span class="gravity-controller">
-                    <button id="decrease-gravity-counter">-</button>
-                    <button id="increase-gravity-counter">+</button>
-                    <span id="gravity-counter">1</span>
-                </span>
+                <div class="speed-controller-wrapper">
+                    <span class="speed-controller">
+                        <button id="decrease-speed-counter">-</button>
+                        <button id="increase-speed-counter">+</button>
+                        <span id="speed-counter">1</span>
+                    </span>
+                    <span class="counter-name">Number of shapes <br> per sec</span>
+                </div>
+                <div class="gravity-controller-wrapper">
+                    <span class="gravity-controller">
+                        <button id="decrease-gravity-counter">-</button>
+                        <button id="increase-gravity-counter">+</button>
+                        <span id="gravity-counter">1</span>
+                    </span>
+                    <span class="counter-name">Gravity value</span>
+                </div>
             </div>
         </div>
         <script src="build/app.js"></script>
