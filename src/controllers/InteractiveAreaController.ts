@@ -87,10 +87,10 @@ export default class InteractiveAreaController {
         if (value === 'decrease' && this.model.gravity > 1) {
             this.model.gravity -= 1;
         }
-        const quantityGravity = String(this.model.gravity);
+        const quantityValue = String(this.model.gravity);
 
         const gravityCounter = document.getElementById('gravity-counter');
-        gravityCounter.innerHTML = quantityGravity;
+        gravityCounter.innerHTML = quantityValue;
     }
 
     // updates the surface area occupied counter
