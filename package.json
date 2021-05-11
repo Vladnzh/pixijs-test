@@ -14,7 +14,7 @@
     "dependencies": {
         "@pixi/filter-color-overlay": "^3.1.1",
         "gh-pages": "^3.1.0",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.21",
         "pixi.js": "^5.3.0"
     },
     "devDependencies": {
