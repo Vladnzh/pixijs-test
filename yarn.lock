@@ -1195,11 +1195,6 @@
   dependencies:
     pixi.js "*"
 
-"@types/randomcolor@^0.5.5":
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/@types/randomcolor/-/randomcolor-0.5.5.tgz#6d8af5f87c6bec1e338ae2d0739056cc2e5720fd"
-  integrity sha512-PywdYff3F8lGO3BggkCXaPFH0Ue/2Y7xliihoQNkxCGPJ4w7VTMfgcmSMIE6gOVAEu9Wx42JRSuRREVG3AUrtg==
-
 "@typescript-eslint/eslint-plugin@^3.3.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-3.4.0.tgz#8378062e6be8a1d049259bdbcf27ce5dfbeee62b"
@@ -5016,9 +5011,9 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.1.0:
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
 postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.32, postcss@^7.0.5, postcss@^7.0.6:
-  version "7.0.32"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.32.tgz#4310d6ee347053da3433db2be492883d62cec59d"
-  integrity sha512-03eXong5NLnNCD05xscnGKGDZ98CyzoqPSMjOe6SuoQY7Z2hIj0Ld1g/O/UQRuOle2aRtiIRDg9tDcTGAkLfKw==
+  version "7.0.36"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.36.tgz#056f8cffa939662a8f5905950c07d5285644dfcb"
+  integrity sha512-BebJSIUMwJHRH0HAQoxN4u1CN86glsrwsW0q7T+/m44eXOUAxSNdHRkNZPYz5vVUbg17hFgOQDE7fZk7li3pZw==
   dependencies:
     chalk "^2.4.2"
     source-map "^0.6.1"
@@ -5170,11 +5165,6 @@ randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   integrity sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==
   dependencies:
     safe-buffer "^5.1.0"
-
-randomcolor@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/randomcolor/-/randomcolor-0.5.4.tgz#df615b13f25b89ea58c5f8f72647f0a6f07adcc3"
-  integrity sha512-nYd4nmTuuwMFzHL6W+UWR5fNERGZeVauho8mrJDUSXdNDbao4rbrUwhuLgKC/j8VCS5+34Ria8CsTDuBjrIrQA==
 
 randomfill@^1.0.3:
   version "1.0.4"
